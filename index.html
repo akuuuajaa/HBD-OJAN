@@ -6,14 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/output.css">
+    <style>
+          /* CSS untuk mengatur gambar di kiri dan kanan */
+          .image-left {
+            float: left;
+            margin-right: 300px; /* Jarak antara gambar dan teks */
+        }
+        .image-right {
+            float: right;
+            margin-left: 300px; /* Jarak antara gambar dan teks */
+        }
+        /* Clearfix untuk mengatasi masalah float */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* Responsif untuk gambar */
+        .responsive-img {
+            width: 40%; /* Ukuran gambar 15% dari lebar kontainer */
+            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+        }
+         /* Tambahkan gaya untuk memastikan tombol terlihat */
+         #mulai {
+            display: block; /* Pastikan tombol ditampilkan sebagai blok */
+            margin: 20px auto; /* Pusatkan tombol */
+            width: 80%; /* Atur lebar tombol */
+        }
+        #lirik {
+            display: none; /* Sembunyikan bagian lirik */
+        }
+        /* CSS untuk latar belakang putih */
+        .white-background {
+            background-color: white;
+            height: 100vh; /* Tinggi penuh layar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed; /* Tetap di tempat */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10; /* Di atas konten lainnya */
+        }
+        /* CSS untuk gambar bulat */
+       
+    </style>
     <title>Happy Birthday</title>
 </head>
-<body class="overflow-x-hidden overflow-y-hidden">
+<body class="overflow-x-hidden overflow-y-auto">
     <!-- NAVBARR -->
     <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
         <div class="container">
             <div class="flex items-center justify-between relative">
-                <div class="px-4">
+                <div class="px-4 flex items-center">
+                    
                     <a href="index.html" class="font-bold text-sm text-brownPrimary block py-6">HAPPY 🎉<br>BIRTHDAY</a>
                 </div>
                 <div class="flex items-center px-4">
@@ -44,28 +92,29 @@
         </div>
     </header>
 
-    <!-- HERO -->
-    <section id="hero" class="pt-28 md:pt-36 relative">
-        <div class="container">
-            <div class="flex flex-wrap">
-                <div class="w-full px-4 md:w-1/2 mb-5">
-                    <div class="">
-                        <img id="imghero" src="img/love.jpg" alt="" class="max-w-full mx-auto">
-                    </div>
-                </div>
-
-                <div class="w-full self-center px-4 md:w-1/2">
-                    <h3 class="font-semibold text-orange text-lg md:text-xl">Selamat Ulang Tahun🎉</h3>
-                    <h1 id="bannernama" class="text-brownPrimary font-bold text-4xl mt-1 md:text-5xl">Ahmad Fauzan Al aziz</h1>
-                    <h2 class="font-medium text-brown2 md:text-xl mb-5">Semoga Panjang Umur Dan Sehat Selalu</h2>
-                    <p id="isipesan" class="font-medium text-slate-500 mb-10 leading-relaxed md:text-lg">Jangan lupa bahagia dan juga bersyukur atas semua pencapaianmu, 
-                        semua orang sayang padamu karena dirimu itu spesial! web ini di buat khusus untuk kamu, maaf kalo masih kurang bagus😚,Semoga suka!</p>
-                        <h3 class="font-medium text-brown2 md:text-xl mb-5">Ohh iyaaa sebelum mulai ke About Us dulu yaa➡️🐣</h3>
-                    <button id="mulai" class="text-base font-semibold text-white bg-brownPrimary py-3 px-8 rounded-full hover:shadow-lg hover:bg-orange z-10">Mulai</button>
+   <!-- HERO -->
+   <section id="hero" class="pt-28 md:pt-36 relative">
+    <div class="container">
+        <div class="flex flex-wrap">
+            <div class="w-full px-4 md:w-1/2 mb-5">
+                <div class="">
+                    <img id="imghero" src="img/love.jpg" alt="" class="max-w-full mx-auto">
                 </div>
             </div>
+
+            <div class="w-full self-center px-4 md:w-1/2">
+                <h3 class="font-semibold text-orange text-lg md:text-xl">Selamat Ulang Tahun🎉</h3>
+                <h1 id="bannernama" class="text-brownPrimary font-bold text-4xl mt-1 md:text-5xl">Ahmad Fauzan Al aziz</h1>
+                <h2 class="font-medium text-brown2 md:text-xl mb-5">Semoga Panjang Umur Dan Sehat Selalu</h2>
+                <p id="isipesan" class="font-medium text-slate-500 mb-10 leading-relaxed md:text-lg">Jangan lupa bahagia dan juga bersyukur atas semua pencapaianmu, 
+                    semua orang sayang padamu karena dirimu itu spesial! web ini di buat khusus untuk kamu, maaf kalo masih kurang bagus😚,Semoga suka!</p>
+                <h3 class="font-medium text-brown2 md:text-xl mb-5">Ohh iyaaa sebelum mulai ke About Us dulu yaa➡️🐣</h3>
+                <button id="mulai" class="w-full text-base font-semibold text-white bg-brownPrimary py-3 rounded-full hover:shadow-lg hover:bg-orange z-20">Mulai</button>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- EFFECT -->
     <canvas class="absolute top-0 left-0 w-full hidden" id="my-canvas"></canvas>
@@ -73,22 +122,37 @@
     <!-- LIRIK MULAI DISINI-->
     <section id="lirik" class="mt-20 overflow-hidden">
         <div id="lirik2" class="container font-bold text-3xl md:text-5xl">
-
-            <h1 id="lagu" class="text-left mt-72 text-brownPrimary">
+        <div>
+            <div class="text-white">.</div>
+            <div class="text-white">.</div>
+            <div class="text-white">.</div>
+            <div class="text-white">.</div>
+            <div class="text-white">.</div>
+        </div>
+            <h1 id="lagu" class="text-left mt-72 text-brownPrimary clearfix">
                 Selamat Ulang Tahun♪
+                <img src="img/ancol1.jpg" alt="Gambar 1" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-72 text-amber-500">
+            <div class="text-white">.</div>
+            <h1 id="lagu2" class="text-right mt-72 text-amber-500 clearfix">
                 Berkah bagaikan embun♫
+                <img src="img/giant.jpg" alt="Gambar 2" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu" class="text-left mt-72 text-cyan-500">
+            
+            <h1 id="lagu" class="text-left mt-72 text-cyan-500 clearfix">
                 Melangkah ke depan♪
+                <img src="img/di rmhku.jpg" alt="Gambar 3" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-72 text-slate-500">
+           
+            
+            
+            <h1 id="lagu2" class="text-right mt-72 text-slate-500 clearfix">
                 hingga detik terakhir pun♫
+                <img src="img/drmh ojan.jpg" alt="Gambar 4" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-
             <!-- JEDA -->
             <div>
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
@@ -100,9 +164,6 @@
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-
             </div>
 
             <div id="lagu" class="mt-96 text-center mb-96 text-slate-700">
@@ -115,7 +176,7 @@
                 Cover Indonesia
 
                 <h1 class="text-brownPrimary mt-10">
-                    WEB ~ 
+                    WEB ~
                     Saiyah Awaliyah
                 </h1>
                 
@@ -128,16 +189,13 @@
                     ART ~ 
                     Saiyah Awaliyah
                 </h1>
-                
+               
             </div>
 
             <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+               
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
@@ -151,23 +209,29 @@
                 </div>
             </div>
 
-            <h1 id="lagu2" class="text-right mt-96 text-violet-500 md:mt-0">
+            <h1 id="lagu2" class="text-right mt-96 text-violet-500 md:mt-0 clearfix">
                 Walaupun orang lain♪
+                <img src="img/rmh mmh ojan.jpg" alt="Gambar 5" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu" class="text-left mt-72 text-teal-500">
+            
+            <h1 id="lagu" class="text-left mt-72 text-teal-500 clearfix">
                 mengecap dirimu berbeda♫
+                <img src="img/kuncir 2.jpg" alt="Gambar 6" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-96 text-pink-500">
+           
+            
+            <h1 id="lagu2" class="text-right mt-96 text-pink-500 clearfix">
                 Dan juga mereka menilaimu seenaknya saja♪
+                <img src="img/bengong.jpg" alt="Gambar 7" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
             <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+            
+                
+            
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
@@ -177,37 +241,38 @@
             </div>
 
 
-            <h1 id="lagu" class="text-left mt-96 text-rose-500">
+            <h1 id="lagu" class="text-left mt-96 text-rose-500 clearfix">
                 Tetapi jangan masukkan♫
+                <img src="img/giant1.jpg" alt="Gambar 8" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-72 text-green-500">
+            <h1 id="lagu2" class="text-right mt-72 text-green-500 clearfix">
                 kata mereka dalam hati♪
+                <img src="img/cbd3.jpg" alt="Gambar 9" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
             <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+                
+            
+                
+                
+                
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
             </div>
             
-            <h1 id="lagu" class="text-left mt-64 md:mt-0 text-sky-500">
+            <h1 id="lagu" class="text-left mt-64 md:mt-0 text-sky-400 clearfix">
                 Cukup abaikan dan usaha jadi diri sendiri♫
+                <img src="img/smile.jpg" alt="Gambar 10" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
             <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
@@ -218,43 +283,45 @@
                 <div class="text-white">.</div>
 
             </div>
-
-            <h1 id="lagu2" class="text-right mt-96 md:mt-10 text-emerald-500">
+            
+            <h1 id="lagu2" class="text-right mt-96 md:mt-10 text-emerald-500 clearfix">
                 Oh.. saatnya bangun..♪
+                <img src="img/awa+ojan di mobil.jpg" alt="Gambar 11" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-
-            <h1 id="lagu" class="text-left mt-72 text-purple-500">
+            
+            <h1 id="lagu" class="text-left mt-72 text-purple-500 clearfix">
                 Jangan matikan dulu lampumu♫
+                <img src="img/pak haji.jpg" alt="Gambar 12" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-72 text-lime-500">
+            <h1 id="lagu2" class="text-right mt-72 text-lime-500 clearfix">
                 Oh.. saatnya bangun..♪
+                <img src="img/dibl.jpg" alt="Gambar 13" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
             <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+                
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
             </div>
 
-            <h1 id="lagu" class="text-left mt-72 text-indigo-500">
+            <h1 id="lagu" class="text-left mt-72 text-indigo-500 clearfix">
                 Perhatikanlah langkahmu♫
+                <img src="img/estrus.jpg" alt="Gambar 14" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
-            <h1 id="lagu2" class="text-right mt-72 text-blue-500">
+            <h1 id="lagu2" class="text-right mt-72 text-blue-500 clearfix">
                 Ayo lihatlah baik-baik kearahku♪
+                <img src="img/zae.jpg" alt="Gambar 15" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-
+                <div class="text-white">.</div>
            <!-- JEDA -->
             <div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
-                <div class="text-white">.</div>
+                
+               
+                
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
                 <div class="text-white">.</div>
@@ -264,18 +331,18 @@
                 <div class="text-white">.</div>
             </div>
 
-            <h1 id="lagu" class="text-left mt-72 text-pink-500">
+            <h1 id="lagu" class="text-left mt-72 text-pink-500 clearfix">
                 Kamu kan lihat orang yang menyayangimu♫
+                <img src="img/ancol.jpg" alt="Gambar 16" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
            <!-- JEDA -->
            <div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
+        
+                        <div class="text-white">.</div>
+                <div class="text-white">.</div>
+                      
+            
             <div class="text-white">.</div>
             <div class="text-center text-5xl text-amber-500">
                 <i class='bx bxs-music'></i>
@@ -288,19 +355,17 @@
             <div class="text-white">.</div>
         </div>
 
-            <h1 id="lagu2" class="text-right mt-72 text-stone-500">
+            <h1 id="lagu2" class="text-right mt-72 text-stone-400 clearfix">
                 Bersyukurlah kepada hidupmu♪
+                <img src="img/ojan pertanahan.jpg" alt="Gambar 17" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
            <!-- JEDA -->
            <div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
+            
+            
+    
+            
             <div class="text-white">.</div>
             <div class="text-white">.</div>
             <div class="text-white">.</div>
@@ -309,65 +374,75 @@
             <div class="text-white">.</div>
         </div>
 
-            <h1 id="lagu" class="text-left mt-96 text-red-500">
+            <h1 id="lagu" class="text-left mt-96 text-red-500 clearfix">
                 Selamat ulang tahun♫
+                <img src="img/kotu.jpg" alt="Gambar 18" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu2" class="text-right mt-96 text-sky-500">
+            <h1 id="lagu2" class="text-right mt-96 text-sky-500 clearfix">
                 Berkah bagaikan embun♪
+                <img src="img/giantt.jpg" alt="Gambar 19" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
-
-            <h1 id="lagu2" class="text-left mt-96 text-lime-500">
+            <div class="text-white">.</div>
+            <div class="text-white">.</div>
+            <h1 id="lagu2" class="text-left mt-96 text-lime-500 clearfix">
                 Tidak peduli dunia hancur sekalipun♫
+                <img src="img/cbd.jpg" alt="Gambar 20" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
            <!-- JEDA -->
            <div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
-            <div class="text-white">.</div>
+            
+            
+            
+        
+            
+            
+            
             <div class="text-white">.</div>
             <div class="text-white">.</div>
             <div class="text-white">.</div>
             <div class="text-white">.</div>
         </div>
 
-            <h1 id="lagu" class="text-right mt-96 text-rose-500">
+            <h1 id="lagu" class="text-right mt-96 text-rose-200 clearfix">
                 Selamat ulang tahun♪
+                <img src="img/cbd2.jpg" alt="Gambar 21" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu2" class="text-left mt-96 text-slate-500">
+            <h1 id="lagu2" class="text-left mt-96 text-slate-400 clearfix">
                 Berkah bagaikan embun♫
+                <img src="img/puncak.jpg" alt="Gambar 22" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu" class="text-right mt-96 text-purple-500">
+            <h1 id="lagu" class="text-right mt-96 text-purple-300 clearfix">
                 melangkah kedepan♪
+                <img src="img/ea.jpg" alt="Gambar 23" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu2" class="text-left mt-96 text-sky-500">
+            <h1 id="lagu2" class="text-left mt-96 text-sky-400 clearfix">
                 hingga detik terakhirpun♫
+                <img src="img/giant1.jpg" alt="Gambar 24" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu" class="text-right mt-96 text-cyan-500">
+            <h1 id="lagu" class="text-right mt-96 text-cyan-400 clearfix">
                 Sorak sorai♪
+                <img src="img/kampus bareng ojan2.jpg" alt="Gambar 25" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu2" class="text-left mt-96 text-indigo-500">
+            <h1 id="lagu2" class="text-left mt-96 text-indigo-400 clearfix">
                 hiduplah di dunia♫
+                <img src="img/fake love.jpg" alt="Gambar 26" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu" class="text-right mt-96 text-purple-500">
+            <h1 id="lagu" class="text-right mt-96 text-purple-400 clearfix">
                 Sorak sorai♪
+                <img src="img/giant1.jpg" alt="Gambar 27" class="responsive-img image-right"> <!-- Ukuran gambar diubah -->
             </h1>
 
-            <h1 id="lagu2" class="text-left mt-96 text-teal-500">
+            <h1 id="lagu2" class="text-left mt-96 text-teal-500 clearfix">
                 jadilah bahagia♫
+                <img src="img/kotuu.jpg" alt="Gambar 28" class="responsive-img image-left"> <!-- Ukuran gambar diubah -->
             </h1>
             <div id="lagu" class="mt-96 text-center mb-96 text-slate-700">
 
@@ -402,5 +477,18 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="js/index.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Menambahkan event listener untuk tombol "Mulai"
+        document.getElementById('mulai').addEventListener('click', function() {
+            // Mengubah latar belakang menjadi putih
+            document.body.style.backgroundColor = 'white';
+            setTimeout(function() {
+                document.getElementById('lirik').style.display = 'block'; // Tampilkan bagian lirik
+                window.scrollTo(0, document.getElementById('lirik').offsetTop); // Scroll ke bagian lirik
+                tampilkanLirik(); // Panggil fungsi untuk menampilkan lirik otomatis
+            }, 1000); // Delay 1000ms (1 detik)
+        });
+
+    </script>
 </body>
 </html>
